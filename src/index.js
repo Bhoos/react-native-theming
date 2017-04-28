@@ -5,19 +5,20 @@ import Theme, { createStyle, getCurrentTheme } from './Theme';
 
 export default {
   View: createThemedComponent(View),
-  Image: createThemedComponent(Image),
+  Image: createThemedComponent(Image, ['source']),
   Text: createThemedComponent(Text),
 
   AniamtedView: createThemedComponent(Animated.View),
-  AniamtedImage: createThemedComponent(Animated.Image),
+  AniamtedImage: createThemedComponent(Animated.Image, ['source']),
   AnimatedText: createThemedComponent(Animated.Text),
 };
 
 export {
-  getCurrentTheme,
   createStyle,
+  createThemedComponent,
+  getCurrentTheme,
 };
 
-export function createTheme(definition) {
-  return new Theme(definition);
+export function createTheme(definition, name) {
+  return new Theme(definition, name);
 }
