@@ -139,7 +139,7 @@ returned by the `createTheme` method. Check out the Button.onPress event in the
 above example
 
 ## Checkout the demo application included with the library
-> `# git clone git@github.com:bhoos/react-native-theming.git`  
+> `$ git clone git@github.com:bhoos/react-native-theming.git`  
 > `$ cd react-native-theming`  
 > `$ npm install`  
 > `$ react-native run-ios`  
