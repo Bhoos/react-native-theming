@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import ThemedStyle from './ThemedStyle';
+import detectTheming from './detectTheming';
 
 const allStyles = [];
 const allThemes = [];
@@ -16,10 +17,6 @@ export function registerComponent(component) {
 let currentTheme = null;
 export function getCurrentTheme() {
   return currentTheme;
-}
-
-function detectTheming(value) {
-  return typeof value === 'string' && value[0] === '@';
 }
 
 export function createStyle(stylesObject) {
@@ -46,14 +43,13 @@ export function createStyle(stylesObject) {
 }
 
 class Theme {
-
   constructor(def, name) {
     this.def = def;
     this.name = name;
 
     // All the styles registered for the application that are dependent
     // on the theme
-    this.styles = allStyles.map(style => this.mapStyle(style));
+    this.styles = allStyles.map(style => this.parseStyle(style));
     allThemes.push(this);
 
     if (currentTheme === null) {
@@ -62,7 +58,7 @@ class Theme {
   }
 
   addStyle(style) {
-    this.styles.push(this.mapStyle(style));
+    this.styles.push(this.parseStyle(style));
   }
 
   mapStyle(style) {
@@ -71,7 +67,11 @@ class Theme {
       const styleValue = style[styleName];
       mapped[styleName] = this.parse(styleValue);
     });
+    return mapped;
+  }
 
+  parseStyle(style) {
+    const mapped = this.mapStyle(style);
     return StyleSheet.create({ mapped }).mapped;
   }
 
@@ -98,6 +98,8 @@ class Theme {
         return style.map(s => this.getStyle(s));
       } else if (style instanceof ThemedStyle) {
         return this.styles[style.id - 1];
+      } else if (typeof style === 'object') {
+        return this.mapStyle(style);
       }
     }
 
