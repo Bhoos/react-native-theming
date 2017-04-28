@@ -4,9 +4,9 @@ An efficient and `StyleSheet.create` compatible theming library for React Native
 ![Demo](https://github.com/bhoos/react-native-theming/raw/master/docs/demo.gif)
 
 # Installation
-> `yarn add react-native-theming`
-or
-> `npm install --save react-native-theming`
+> `$ yarn add react-native-theming`  
+or  
+> `$ npm install --save react-native-theming`  
 
 # Usage
 ## Create themes
