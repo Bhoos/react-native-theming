@@ -4,11 +4,9 @@ An efficient and `StyleSheet.create` compatible theming library for React Native
 ![Demo](https://github.com/bhoos/react-native-theming/raw/master/docs/demo.gif)
 
 # Installation
-> `yarn add react-native-theming"
-
+> `yarn add react-native-theming`
 or
-
-> `npm install --save react-native-theming"
+> `npm install --save react-native-theming`
 
 # Usage
 ## Create themes
@@ -36,8 +34,8 @@ const themes = [
 ];
 ```
 
-## Create StyleSheet
-Create stylesheet as you would with `StyleSheet.create`. Except you can
+## Create Styles
+Create styles as you would with `StyleSheet.create`. Except you can
 now use theme variables on your styles with an `@` prefix followed by
 the name of the theme variable as declared in the theme.
 
@@ -74,21 +72,21 @@ const styles = createStyle({
 ```
 
 ## Create custom components
-The theming library provides Theme.View, Theme.Image, Theme.Text,
-Theme.AnimatedView, Theme.AnimatedImage, Theme.Animated.Text within
-the library, which needs to be used in place of respective View, Image
-and Text for the theme to take affect. Custom components could easily
-be made themable as well. 
+The theming library provides `Theme.View`, `Theme.Image`, `Theme.Text`,
+`Theme.AnimatedView`, `Theme.AnimatedImage`, `Theme.Animated.Text` components, 
+which needs to be used in place of respective View, Image and Text for the theme 
+to take affect. Custom components could be easily made themable as well. 
 
 ```javascript
 import { createThemedComponent } from 'react-native-theming';
+import { TouchableOpacity, StatusBar } from 'react-native';
 
 const Button = createThemedComponent(TouchableOpacity);
 const Bar = createThemedComponent(StatusBar, ['barStyle', 'backgroundColor']);
 ```
 
 ## Create your themed view
-It is not just the styles, but the themes could even be applied to the properties.
+It is not just the styles, but the themes could even be applied to the props.
 Not all properties will however support theming. For example, with the builtin 
 components, only `Theme.Image` and `Theme.AnimatedImage` supports theming with
 `source` property. You can however create custom components with an array of
@@ -139,9 +137,9 @@ export default class ThemeDemo extends Component {
 ## Applying Theme
 Applying themes is just a matter of invoking `apply` method on the `theme` instance
 returned by the `createTheme` method. Check out the Button.onPress event in the
-above example
+above example. The first created theme becomes the default theme.
 
-## Checkout the demo application included with the library
+# Test the demo application included with the library
 > `$ git clone git@github.com:bhoos/react-native-theming.git`  
 > `$ cd react-native-theming`  
 > `$ npm install`  
