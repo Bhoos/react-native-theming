@@ -22,29 +22,30 @@ function detectTheming(value) {
   return typeof value === 'string' && value[0] === '@';
 }
 
+export function createStyle(stylesObject) {
+  const themedStyles = {};
+  const nonThemedStyles = {};
+
+  Object.keys(stylesObject).forEach((key) => {
+    const style = stylesObject[key];
+
+    // See if there is anykind of theming applied on this style
+    const themed = Object.keys(style).find(styleName => detectTheming(style[styleName]));
+
+    if (themed) {
+      const id = allStyles.push(style);
+      // also map this theme to all the existing themes
+      allThemes.forEach(theme => theme.addStyle(style));
+      themedStyles[key] = new ThemedStyle(id);
+    } else {
+      nonThemedStyles[key] = style;
+    }
+  });
+
+  return Object.assign(themedStyles, StyleSheet.create(nonThemedStyles));
+}
+
 class Theme {
-  static createStyle(stylesObject) {
-    const themedStyles = {};
-    const nonThemedStyles = {};
-
-    Object.keys(stylesObject).forEach((key) => {
-      const style = stylesObject[key];
-
-      // See if there is anykind of theming applied on this style
-      const themed = Object.keys(style).find(styleName => detectTheming(style[styleName]));
-
-      if (themed) {
-        const id = allStyles.push(style);
-        // also map this theme to all the existing themes
-        allThemes.forEach(theme => theme.addStyle(style));
-        themedStyles[key] = new ThemedStyle(id);
-      } else {
-        nonThemedStyles[key] = style;
-      }
-    });
-
-    return Object.assign(themedStyles, StyleSheet.create(nonThemedStyles));
-  }
 
   constructor(def) {
     this.def = def;
