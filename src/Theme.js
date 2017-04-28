@@ -47,8 +47,9 @@ export function createStyle(stylesObject) {
 
 class Theme {
 
-  constructor(def) {
+  constructor(def, name) {
     this.def = def;
+    this.name = name;
 
     // All the styles registered for the application that are dependent
     // on the theme
