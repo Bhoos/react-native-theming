@@ -34,6 +34,10 @@ const themes = [
 ```
 
 ## Create StyleSheet
+Create stylesheet as you would with `StyleSheet.create`. Except you can
+now use theme variables on your styles with an `@` prefix followed by
+the name of the theme variable as declared in the theme.
+
 ```javascript
 import { createStyle } from 'react-native-theming';
 
@@ -71,7 +75,7 @@ The theming library provides Theme.View, Theme.Image, Theme.Text,
 Theme.AnimatedView, Theme.AnimatedImage, Theme.Animated.Text within
 the library, which needs to be used in place of respective View, Image
 and Text for the theme to take affect. Custom components could easily
-be made themable as well.
+be made themable as well. 
 
 ```javascript
 import { createThemedComponent } from 'react-native-theming';
@@ -81,6 +85,12 @@ const Bar = createThemedComponent(StatusBar, ['barStyle', 'backgroundColor']);
 ```
 
 ## Create your themed view
+It is not just the styles, but the themes could even be applied to the properties.
+Not all properties will however support theming. For example, with the builtin 
+components, only `Theme.Image` and `Theme.AnimatedImage` supports theming with
+`source` property. You can however create custom components with an array of
+props that needs theming support. In the above example, the `StatusBar` component
+has been themed with `barStyle` and `backgroundColor` props.
 
 ```javascript
 import React from 'react';
