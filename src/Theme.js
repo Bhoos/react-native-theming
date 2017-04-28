@@ -53,6 +53,7 @@ class Theme {
     // All the styles registered for the application that are dependent
     // on the theme
     this.styles = allStyles.map(style => this.mapStyle(style));
+    allThemes.push(this);
 
     if (currentTheme === null) {
       currentTheme = this;
@@ -75,7 +76,7 @@ class Theme {
 
   parse(value) {
     if (detectTheming(value)) {
-      return this.def[value.substr[1]];
+      return this.def[value.substr(1)];
     }
 
     return value;
