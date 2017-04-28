@@ -6,13 +6,28 @@
   "repository": "git@github.com:bhoos/react-native-theming.git",
   "author": "Ranjan Shrestha <ranjan@sharingapples.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "babel --out-dir lib --ignore __tests__ src --source-maps",
+    "prepublish": "rimraf lib && babel --out-dir lib --ignore __tests__ src",
+    "clean": "rimraf lib && mkdir lib",
+    "lint": "eslint ./src --quiet",
+    "test": "NODE_ENV=test jest"
+  },
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-preset-react-native": "^1.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.10.3",
+    "react": "16.0.0-alpha.6",
+    "react-native": "^0.43.4",
+    "rimraf": "^2.6.1"
   },
   "peerDependencies": {
     "react": ">=15.0.0",
