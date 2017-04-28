@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 
 import { registerComponent, getCurrentTheme } from './Theme';
 import ThemedStyle from './ThemedStyle';
-import flattenStyle from 'flattenStyle';
 import detectTheming from './detectTheming';
+
+const flattenStyle = require('react-native/Libraries/StyleSheet/flattenStyle');
 
 // Allow string starting with '@'
 // const DecoratedStylePropType = (props, propName) => {
