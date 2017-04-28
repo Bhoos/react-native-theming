@@ -6,14 +6,7 @@ import detectTheming from './detectTheming';
 
 const flattenStyle = require('react-native/Libraries/StyleSheet/flattenStyle');
 
-// Allow string starting with '@'
-// const DecoratedStylePropType = (props, propName) => {
-//   const value = props[propName];
-
-// }
-
 const ThemedPropType = C => (props, propName, componentName, ...args) => {
-  console.log('Checking propType', propName, ' of ', componentName);
   if (!detectTheming(props[propName])) {
     // Fall back to default propType
     return C.propTypes[propName](props, propName, componentName, ...args);
@@ -134,6 +127,7 @@ export default function createThemedComponent(C, themedProps = []) {
 
   // Add the additional propTypes
   themedProps.forEach((prop) => {
+    // eslint-disable-next-line react/require-default-props
     ThemedComponent.propTypes[prop] = ThemedPropType(C);
   });
 
