@@ -51,13 +51,20 @@ const styles = createStyle({
     color: '#888',
     marginBottom: 5,
   },
-  button: {
+  // The generic button and button can be one, only separated
+  // here for testing purpose
+  genericButton: {
+    flex: 1,
     margin: 10,
     padding: 10,
-    backgroundColor: '@buttonColor',
     borderRadius: 3,
-    flex: 1,
+  },
+  button: {
+    backgroundColor: '@buttonColor',
     alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 14,
   },
 });
 
@@ -84,8 +91,8 @@ export default class ThemeDemo extends Component {
         </Text>
         <View style={{ flexDirection: 'row' }}>
           { themes.map(theme => (
-            <Button key={theme.name} style={styles.button} onPress={() => theme.apply()}>
-              <Theme.Text style={{ color: '@buttonText' }}>{theme.name}</Theme.Text>
+            <Button key={theme.name} style={[styles.button, styles.genericButton]} onPress={() => theme.apply()}>
+              <Theme.Text style={[styles.buttonText, { color: '@buttonText' }]}>{theme.name}</Theme.Text>
             </Button>
             ))
           }

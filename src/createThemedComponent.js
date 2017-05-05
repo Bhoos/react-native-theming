@@ -2,42 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 import { registerComponent, getCurrentTheme } from './Theme';
 import ThemedStyle from './ThemedStyle';
-import detectTheming from './detectTheming';
-
-const flattenStyle = require('react-native/Libraries/StyleSheet/flattenStyle');
-
-const ThemedPropType = C => (props, propName, componentName, ...args) => {
-  if (!detectTheming(props[propName])) {
-    // Fall back to default propType
-    return C.propTypes[propName](props, propName, componentName, ...args);
-  }
-
-  return undefined;
-};
-
-const DecoratedStylePropTypes = C => (props, propName, componentName, ...args) => {
-  // Expected propType is an object in this case
-  const value = props[propName];
-  if (value) {
-    const style = flattenStyle(props[propName]);
-    const newProps = {
-      [propName]: {},
-    };
-
-    // Remove all decorated values
-    Object.keys(style).forEach((key) => {
-      if (!detectTheming(style[key])) {
-        newProps[propName][key] = style[key];
-      }
-    });
-
-    // finally check with the default checker
-    return C.propTypes.style(newProps, propName, componentName, ...args);
-  }
-
-  return undefined;
-};
-
 
 export default function createThemedComponent(C, themedProps = []) {
   class ThemedComponent extends Component {
@@ -45,8 +9,14 @@ export default function createThemedComponent(C, themedProps = []) {
 
     static propTypes = {
       style: PropTypes.oneOfType([
-        PropTypes.instanceOf(ThemedStyle),
-        DecoratedStylePropTypes(C),
+        PropTypes.number,                       // For StyleSheet.create
+        PropTypes.instanceOf(ThemedStyle),      // For Themed styles
+        PropTypes.object,                       // For inline styles
+        PropTypes.arrayOf(PropTypes.oneOfType([
+          PropTypes.number,
+          PropTypes.instanceOf(ThemedStyle),
+          PropTypes.object,
+        ])),
       ]),
       children: PropTypes.oneOfType([
         PropTypes.node,
@@ -124,12 +94,6 @@ export default function createThemedComponent(C, themedProps = []) {
       );
     }
   }
-
-  // Add the additional propTypes
-  themedProps.forEach((prop) => {
-    // eslint-disable-next-line react/require-default-props
-    ThemedComponent.propTypes[prop] = ThemedPropType(C);
-  });
 
   return ThemedComponent;
 }
