@@ -27,14 +27,11 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
-    "react": "16.0.0-alpha.6",
-    "react-native": "^0.43.4",
-    "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-native": ">=40.0.0"
+    "react": ">= 15",
+    "react-native": ">= 0.40.0 < 1"
   },
   "jest": {
     "preset": "react-native"
