@@ -77,7 +77,15 @@ class Theme {
 
   parse(value) {
     if (detectTheming(value)) {
-      return this.def[value.substr(1)];
+      // Handle the basic use case
+      const v = this.def[value.substr(1)];
+      if (v) {
+        return v;
+      }
+
+      // Handle the more complicated case where the variables may
+      // appear anywhere in the string
+      return value.replace(/@([\w_-]+)/gm, (match, key) => this.def[key]);
     }
 
     return value;

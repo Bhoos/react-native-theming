@@ -37,7 +37,8 @@ const themes = [
 ## Create Styles
 Create styles as you would with `StyleSheet.create`. Except you can
 now use theme variables on your styles with an `@` prefix followed by
-the name of the theme variable as declared in the theme.
+the name of the theme variable as declared in the theme. You can also
+construct your style including the theme variable, like 'rgba(@backgroundColor, 0.2)'.
 
 ```javascript
 import { createStyle } from 'react-native-theming';

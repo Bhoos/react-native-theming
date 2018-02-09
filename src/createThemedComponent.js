@@ -88,6 +88,8 @@ export default function createThemedComponent(C, themedProps = []) {
 
       const themedStyle = theme.getStyle(style);
 
+      console.log(this.props, props);
+
       return (
         <C style={themedStyle} {...other} {...props}>
           {children}
