@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel --out-dir lib --ignore __tests__ src --source-maps",
-    "prepublish": "rimraf lib && babel --out-dir lib --ignore __tests__ src",
+    "prepublishOnly": "rimraf lib && babel --out-dir lib --ignore __tests__ src",
     "clean": "rimraf lib && mkdir lib",
     "lint": "eslint ./src --quiet",
     "test": "NODE_ENV=test jest"
