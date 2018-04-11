@@ -1,0 +1,17 @@
+{
+  "name": "react-native-theming-demo",
+  "version": "1.0.0",
+  "description": "Demo for react-native-theming library",
+  "main": "index.js",
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react-native-theming": "^1.0.10"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0",
+    "react-native": "^0.54.0"
+  },
+  "author": "Ranjan Shrestha",
+  "license": "MIT",
+  "private": true
+}

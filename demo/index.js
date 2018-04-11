@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import Theme, { createTheme, createStyle, createThemedComponent } from './src';
+import Theme, { createTheme, createStyle, createThemedComponent } from 'react-native-theming';
 
 const themes = [
   createTheme({
@@ -102,4 +102,4 @@ export default class ThemeDemo extends Component {
   }
 }
 
-AppRegistry.registerComponent('ThemeDemo', () => ThemeDemo);
+AppRegistry.registerComponent('Foundation', () => ThemeDemo);

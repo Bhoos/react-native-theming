@@ -1,42 +1,9 @@
 {
-  "name": "react-native-theming",
-  "version": "1.0.10",
-  "description": "A theming library for React Native applications",
-  "main": "lib/index.js",
-  "repository": "git@github.com:bhoos/react-native-theming.git",
-  "author": "Ranjan Shrestha <ranjan@sharingapples.com>",
-  "license": "MIT",
-  "scripts": {
-    "build": "babel --out-dir lib --ignore __tests__ src --source-maps",
-    "prepublishOnly": "rimraf lib && babel --out-dir lib --ignore __tests__ src",
-    "clean": "rimraf lib && mkdir lib",
-    "lint": "eslint ./src --quiet",
-    "test": "NODE_ENV=test jest"
-  },
-  "files": [
-    "lib"
-  ],
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^19.0.0",
-    "babel-preset-react-native": "^1.9.2",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "jest": "^19.0.2",
-    "rimraf": "^2.6.1"
-  },
-  "peerDependencies": {
-    "react": ">= 15",
-    "react-native": ">= 0.40.0 < 1"
-  },
-  "jest": {
-    "preset": "react-native"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.0"
-  }
+	"private": true,
+	"workspaces": [
+		"lib", "demo"
+	],
+	"devDependencies": {
+		"lerna": "^2.9.1"
+	}
 }
