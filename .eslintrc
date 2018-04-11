@@ -4,5 +4,8 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", { "peerDependencies": true }],
     "react/jsx-filename-extension": ["error", { "extensions": ["js"] }]
+  },
+  "settings": {
+    "import/core-modules": ["react", "react-native"]
   }
 }
