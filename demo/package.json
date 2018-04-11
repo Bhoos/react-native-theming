@@ -1,6 +1,6 @@
 {
   "name": "react-native-theming-demo",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Demo for react-native-theming library",
   "main": "index.js",
   "dependencies": {
