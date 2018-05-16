@@ -141,4 +141,9 @@ returned by the `createTheme` method. Check out the Button.onPress event in the
 above example. The first created theme becomes the default theme.
 
 # Try the demo
-  [React NativeTheme Demo](../demo/README.md)
+  [On Expo](https://snack.expo.io/@syaau/react-native-theming-demo)
+
+  or 
+  
+  [check the code out.](../demo)
+  
