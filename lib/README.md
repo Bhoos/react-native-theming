@@ -145,5 +145,5 @@ above example. The first created theme becomes the default theme.
 
   or 
   
-  [check the code out.](../demo)
-  
+  [check the code out.](https://github.com/Bhoos/react-native-theming/tree/master/demo)
+
