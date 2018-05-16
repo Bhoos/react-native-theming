@@ -1,6 +1,6 @@
 {
   "name": "react-native-theming",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A theming library for React Native applications",
   "main": "__dist__/index.js",
   "repository": "git@github.com:bhoos/react-native-theming.git",
