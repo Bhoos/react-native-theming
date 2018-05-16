@@ -1,9 +1,11 @@
 # Running the demo
 * Use [yarn](https://yarnpkg.com) as the node package manager
+* Clone the project
+  > `$ git clone git@github.com:bhoos/react-native-theming`
 * Install all packages. 
   > `$ yarn install`
 * Install [react-native-foundation](https://github.com/bhoos/foundation) for 
-  running node apps.
+  running react-native apps.
   > `$ yarn global add react-native-foundation`
 * Execute the rest of the commands from within the `demo` folder.
 * Install foundation app on your simulator or device (If not already installed)
