@@ -38,5 +38,6 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0"
-  }
+  },
+  "gitHead": "82a9dcb67e88491f9b659ff8c8a701f0f091615f"
 }
