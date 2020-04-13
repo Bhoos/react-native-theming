@@ -1,6 +1,6 @@
 {
   "name": "react-native-theming",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "description": "A theming library for React Native applications",
   "main": "__dist__/index.js",
   "repository": "git@github.com:bhoos/react-native-theming.git",
@@ -21,7 +21,7 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^19.0.0",
     "babel-preset-react-native": "^1.9.2",
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
@@ -38,5 +38,6 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0"
-  }
+  },
+  "gitHead": "82a9dcb67e88491f9b659ff8c8a701f0f091615f"
 }
