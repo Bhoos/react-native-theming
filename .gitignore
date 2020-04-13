@@ -5,3 +5,5 @@ node_modules/
 lerna-debug.log
 npm-debug.log
 yarn-error.log
+
+.vscode
